@@ -1,0 +1,1915 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>深入理解计算机系统，第三版(CSAPPe3)</title>
+    <link rel="shortcut icon" href="index.files/favicon.ico">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="lib/jquery.dataTables.css">
+    <style>
+      .thumbnail {
+        -webkit-backface-visibility: hidden;
+        display: inline-block;
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+        background: #000;
+        box-shadow: 0 15px 50px rgba(0,0,0,.5);
+        padding: 0 !important;
+      }
+      .thumbnail img {
+        /*float:left;*/
+        display: block;
+        max-width: 100%;
+        transition: opacity .2s ease-in-out;
+      }
+      .thumbnail:hover img {
+        opacity: .5;
+      }
+      .thumbnail::after,
+      .thumbnail::before {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 50%;
+        transition: transform .4s ease-out;
+        color: #fff;
+      }
+      .thumbnail::after {
+        content: attr(data-title);
+        top: 0;
+        padding-top: 55px;
+        transform: translateY(-100%) scale(.8);
+        background: rgba(0,0,0,.4);
+        font-size: 1.5rem;
+        font-weight: 300;
+        font-family: Merriweather, serif;
+        text-align: center;
+      }
+      .thumbnail::before {
+        content: attr(data-description);
+        top: 50%;
+        padding: 10px;
+        transform: translateY(100%) scale(.8);
+        background: rgba(75,123,224,.51);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        color: #f1f1f1;
+        font-size: 0.9rem;
+      }
+      .thumbnail:hover::after,
+      .thumbnail:hover::before {
+        transform: translateY(0%) scale(1);
+      }
+      .table-container {
+        width: 86%;
+        margin-left: 7%;
+      }
+    </style>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/table.js"></script>
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='tab-interval:21.0pt'>
+    <div class=WordSection1>
+        <h1 align=center style='text-align:center'>深入理解计算机系统，第三版</h1>
+        <h1 align=center style='text-align:center'><span lang=EN-US>Computer Systems: A
+Programmer's Perspective, Third Edition (CS:APP3e)</span></h1>
+        <p><span lang=EN-US>&nbsp;</span></p>
+        <p style='text-indent:252.0pt;mso-char-indent-count:21.0'><span lang=EN-US style='mso-no-proof:yes'><span style='mso-spacerun:yes'>&nbsp;</span>
+            <!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLi
+idth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="图片_x0020_13" o:spid="_x0000_i1038" type="#_x0000_t75"
+ alt="en-cover.jpg" style='width:196.5pt;height:243pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="index.files/image001.jpg" o:title="csapp2e-en-cover"/>
+</v:shape><![endif]-->
+            <![if !vml]><div class="thumbnail" data-title="Computer Systems: A Programmer's Perspective" data-description="Randal E. Bryant、 David R. O'Hallaron（Third Edition）" style="margin-left:calc(50% - 292px)"><img width=262 height=324 src="index.files/image001.jpg" alt=en-cover.jpg v:shapes="图片_x0020_13"></div>
+            <![endif]><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span>
+            <!--[if gte vml 1]><v:shape
+ id="图片_x0020_15" o:spid="_x0000_i1037" type="#_x0000_t75" alt="cn-cover.jpg"
+ style='width:191.25pt;height:243pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="index.files/image003.jpg" o:title="深入理解计算机系统-第二版"/>
+</v:shape><![endif]-->
+            <![if !vml]><div class="thumbnail" data-title="深入理解计算机系统" data-description="龚奕利、贺莲 (第三版)"><img width=255 height=324 src="index.files/image002.jpg" alt=cn-cover.jpg v:shapes="图片_x0020_15"></div>
+            <![endif]><span style='mso-spacerun:yes'>&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;</span>
+            <o:p></o:p>
+            </span>
+        </p>
+        <!-- <p style='text-indent:252.0pt;mso-char-indent-count:21.0'><span lang=EN-US style='mso-no-proof:yes'><span style='mso-spacerun:yes'>&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-US style='font-family:
+"Georgia","serif";mso-no-proof:yes'>Computer Systems(Second Edition)</span><span lang=EN-US style='mso-no-proof:yes'><span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;</span></span><span style='mso-no-proof:yes'>深入理解计算机系统（中文版第二版）<span lang=EN-US><o:p></o:p></span></span>
+        </p> -->
+        <p style='text-indent:252.0pt;mso-char-indent-count:21.0'><span lang=EN-US style='mso-no-proof:yes'><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>
+            <o:p></o:p>
+            </span>
+        </p>
+        <p><span lang=EN-US style='mso-no-proof:yes'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>
+            <span style='mso-no-proof:yes'>英文版官方网站：<a href="http://csapp.cs.cmu.edu/3e/home.html"/>CS:APP3e Home Page<a/></span>
+            <p/>
+            <p><span lang=EN-US style='mso-no-proof:yes'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='mso-no-proof:yes'>英文版官方blog：<a href="http://csappbook.blogspot.com/"/>CS:APP Blog<a/></span>
+                <p><span lang=EN-US style='mso-no-proof:yes'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='mso-no-proof:yes'>中文版此处有售：</span><span lang=EN-US style='font-size:13.5pt;font-family:"Georgia","serif";color:#7030A0'><a
+href="http://product.china-pub.com/5007882"><span style='font-size:12.0pt'>CHINA-PUB</span>
+                    </a>
+                    </span><span style='font-size:13.5pt;mso-ascii-font-family:Georgia;
+mso-hansi-font-family:Georgia;color:#7030A0'>、</span> <span lang=EN-US><a
+href="http://www.hzbook.com/Books/9638.html"><span lang=EN-US><span lang=EN-US>华章图书</span></span>
+                    </a>
+                    </span>、
+                    <span lang=EN-US><a
+href="https://www.amazon.cn/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-%E5%85%B0%E5%BE%B7%E5%B0%94%E2%80%A2E-%E5%B8%83%E8%8E%B1%E6%81%A9%E7%89%B9/dp/B01N03IQK4/ref=lp_658815051_1_1?s=books&ie=UTF8&qid=1480993068&sr=1-1"><span
+lang=EN-US><span lang=EN-US>亚马逊</span></span>
+                    </a>
+                    </span>、 <span lang=EN-US><a
+href="http://product.dangdang.com/24106647.html"><span
+lang=EN-US><span lang=EN-US>当当网</span></span>
+                    </a><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"Georgia","serif"'><span
+style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-US><span
+style='mso-spacerun:yes'>&nbsp;</span><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                </p>
+                <p class=MsoNormal style='text-indent:186.0pt;mso-char-indent-count:15.5'><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
+                <p class=style1 align=center style='text-align:center'><span lang=EN-US>CS:APP</span>第三版中文版勘误表<span lang=EN-US><o:p></o:p></span></p>
+                <p class=style1 align=center style='font-size:11pt; text-align:center'>最新修改日期：2021年12月9日<span lang=EN-US><o:p></o:p></span></p>
+                <p><span lang=EN-US style='mso-no-proof:yes'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>请将《深入理解计算机系统（第三版）》的勘误问题告诉<a href="mailto:yiligong@whu.edu.cn">龚奕利</a>。</p>
+                <p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>感谢彭岁万同学的网页技术支持！</p>
+                <div align=center class="table-container">
+                  <table id="table" class="table table-striped table-bordered display hover cell-border" width="100%">
+                    <thead> 
+                     <tr>
+                      <th></th> 
+                      <th>发现日期</th> 
+                      <th>页码行号</th> 
+                      <th>原文</th> 
+                      <th>修改后</th> 
+                      <th>指出人</th> 
+                      <th>备注</th> 
+                     </tr> 
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                     <tr>
+                      <th></th> 
+                      <th>发现日期</th> 
+                      <th>页码行号</th> 
+                      <th>原文</th> 
+                      <th>修改后</th> 
+                      <th>指出人</th> 
+                      <th>备注</th> 
+                     </tr> 
+                    </tfoot>
+                  </table>
+                </div>
+                <script>
+                $(document).ready(function(){
+                  var data = [
+                    {
+                      'status': '',
+                      'date': '2016.11.24',
+                      'page': 'P029 正文倒数第二段最后一行',
+                      'source': 'IOS',
+                      'modification': '<b style="color:red">iOS</b>',
+                      'witness': '中文版勘误 [魏禧林]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.11.24',
+                      'page': 'P054 第一个原理中',
+                      'source': '宽度为w&prime;的位向量',
+                      'modification': '宽度为<b style="color:red">w</b>的位向量',
+                      'witness': '中文版勘误 [魏禧林]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.11.24',
+                      'page': 'P124 旁注第2行末尾',
+                      'source': '',
+                      'modification': '将“－”和下一行开头的“1”合并到一起',
+                      'witness': '中文版勘误 [魏禧林]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.11.24',
+                      'page': 'P130 练习题3.6，第一个表达式中',
+                      'source': '%ax',
+                      'modification': '<b style="color:red">%rax</b>',
+                      'witness': '中文版勘误 [魏禧林]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.11.24',
+                      'page': 'P227 练习题3.4的答案，表格第三行',
+                      'source': 'novsbl',
+                      'modification': '<b style="color:red">movsbl</b>',
+                      'witness': '中文版勘误 [魏禧林]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.12.5',
+                      'page': 'P167 图3-27',
+                      'source': '',
+                      'modification': 'T1的PC应为0x4005<b style="color:red">4</b>5，T2的PC应为0x4005<b style="color:red">4</b>9',
+                      'witness': '中文版勘误 [黄文俊]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.12.5',
+                      'page': 'P169 图3-29上最后一行',
+                      'source': '每个都是8字节的',
+                      'modification': '每个<b style="color:red">指针</b>都是8字节的',
+                      'witness': '中文版勘误 [黄文俊]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.12.5',
+                      'page': 'P173 第2段第1行',
+                      'source': '',
+                      'modification': '“<b style="color:red">被</b>调用者保存”中的“被”字也应用特殊字体标注，避免误读',
+                      'witness': '中文版勘误 [黄文俊]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.12.5',
+                      'page': 'P235 练习题3.33，第3行',
+                      'source': 'v+=b',
+                      'modification': '<b style="color:red">*</b>v+=b',
+                      'witness': '中文版勘误 [黄文俊]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.12.14',
+                      'page': 'P420 6.2.3第4行最后',
+                      'source': '步长为l',
+                      'modification': '步长为<b style="color:red">1</b>',
+                      'witness': '中文版勘误 [黄文俊]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.12.14',
+                      'page': 'P557 图8-49',
+                      'source': '',
+                      'modification': '右边的1改为<b style="color:red">2</b>',
+                      'witness': '中文版勘误 [黄文俊]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.12.20',
+                      'page': 'P698 练习题12.6表格倒数第二行',
+                      'source': 'myid.po',
+                      'modification': 'myid.p<b style="color:red">0</b>',
+                      'witness': '中文版勘误 [黄文俊]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.12.20',
+                      'page': 'P727 练习题12.12答案',
+                      'source': 'gethostbyname',
+                      'modification': '<b style="color:red">ctime</b>',
+                      'witness': '中文版勘误 [黄文俊]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.02.28',
+                      'page': 'P240 练习题3.49答案A中',
+                      'source': '这个值减去s1就得到s2',
+                      'modification': '<b style="color:red">s1减去这个值</b>就得到s2',
+                      'witness': '中文版勘误 [Chris]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.10',
+                      'page': 'P073 中间，原理：除以2的幂的补码除法，向上舍入',
+                      'source': '&#8970x/2<sup>k</sup>&#8971',
+                      'modification': '<b style="color:red">&#8968</b>x/2<sup>k</sup><b style="color:red">&#8969</b>',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.13',
+                      'page': 'P133 图3-12中第三行',
+                      'source': 'clto',
+                      'modification': '<b style="color:red">cqto</b>',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.13',
+                      'page': 'P133 图3-12中idivq和divq两条指令的第二行中',
+                      'source': 'R[%rdx]<-R[%rdx]:R[%rax]&#247S',
+                      'modification': 'R[<b style="color:red">%rax</b>]<-R[%rdx]:R[%rax]&#247S',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.13',
+                      'page': 'P134 倒数第4段',
+                      'source': '对大多数64位除法应用来说，除数也常常....',
+                      'modification': '对大多数64位除法应用来说，<b style="color:red">被除数</b>也常常....',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第3次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.16',
+                      'page': 'P147 倒数第3行',
+                      'source': 'vt的值',
+                      'modification': 'v<b style="color:red">e</b>的值',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.17',
+                      'page': 'P166 最后一行',
+                      'source': 'T1～T4（main中）',
+                      'modification': 'T1～T4（<b style="color:red">top</b>）中',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.17',
+                      'page': 'P173 第8行',
+                      'source': '保存的寄存器',
+                      'modification': '<b style="color:red">被</b>保存的寄存器',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.17',
+                      'page': 'P176 表格下一行',
+                      'source': '每个需要8个字节',
+                      'modification': '每个需要<b style="color:red">4</b>个字节',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.17',
+                      'page': 'P236 3.37答案的表格中',
+                      'source': '',
+                      'modification': '所有的leal都应为<b style="color:red">leaq</b>',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.17',
+                      'page': 'P238 3.43答案的第5行',
+                      'source': 'addq $, %rdi',
+                      'modification': 'addq $<b style="color:red">10</b>, %rdi',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.17',
+                      'page': 'P238 3.43答案的第7行',
+                      'source': 'movq %rdi, %rsi',
+                      'modification': 'movq %rdi, <b style="color:red">(</b>%rsi<b style="color:red">)</b>',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.17',
+                      'page': 'P145 图3-17(c)代码第8行',
+                      'source': 'return tval',
+                      'modification': 'return <b style="color:red">r</b>val',
+                      'witness': '英文版勘误 [llkemail]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.21',
+                      'page': 'P196 练习题3.46 A部分最后一行',
+                      'source': '0x3～0x39',
+                      'modification': '0x3<b style="color:red">0</b>～0x39',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.21',
+                      'page': 'P202 第5行',
+                      'source': '在执行工程中',
+                      'modification': '在执行<b style="color:red">过程</b>中',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.21',
+                      'page': 'P208 练习题3.50上倒数第4行',
+                      'source': '因为它们既不是整数也不是指针',
+                      'modification': '因为它们<b style="color:red">是整数或者指针</b>',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.21',
+                      'page': 'P216 第1行',
+                      'source': '参见原书546页',
+                      'modification': '参见<b style="color:red">本书376</b>页',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.21',
+                      'page': 'P247 倒数第3行',
+                      'source': '附加的4字节',
+                      'modification': '附加的<b style="color:red">8</b>字节',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.03.22',
+                      'page': 'P108 练习题2.54答案B部分中',
+                      'source': '(int)(double)x',
+                      'modification': '(int)(<b style="color:red">float</b>)x',
+                      'witness': '中文版勘误 [梁金碧]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.01.02',
+                      'page': 'P251 图4-6第9行注释',
+                      'source': 'Test sum',
+                      'modification': 'Test <b style="color:red">count</b>',
+                      'witness': '英文版勘误 [Lee Wintervold]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.08',
+                      'page': 'P259 练习题4.10第2行',
+                      'source': '需要64个字级的异或电路',
+                      'modification': '需要64个<b style="color:red">位</b>级的异或电路',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.08',
+                      'page': 'P268 图4-20第3列倒数第4行',
+                      'source': 'valE',
+                      'modification': 'val<b style="color:red">M</b>',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.08',
+                      'page': 'P293 4.5.4节上倒数第2段倒数第2行',
+                      'source': '标号为“Data”的块',
+                      'modification': '标号为“<b style="color:red">数据</b>”的块',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.08',
+                      'page': 'P374 图5-27右侧代码第2、3行',
+                      'source': 'vmovsd',
+                      'modification': '<b style="color:red">vmulsd</b>',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.08',
+                      'page': 'P412 旁注第4行',
+                      'source': 'PCEe',
+                      'modification': 'PC<b style="color:red">I</b>e',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第4次印刷已更正'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.08',
+                      'page': 'P439 第9行',
+                      'source': '',
+                      'modification': '去掉“50个周期；”后的“，”',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.08',
+                      'page': 'P439 倒数第5行',
+                      'source': '较低层上使用比较小的相联度',
+                      'modification': '较低层上使用比较<b style="color:red">大</b>的相联度',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.08',
+                      'page': 'P082',
+                      'source': '阶码字段除了最高有效位等于1以外，其他位都等于0',
+                      'modification': '阶码字段除了最高有效位等于<b style="color:red">0</b>以外，所有其他位都等于<b style="color:red">1</b>',
+                      'witness': '中文版勘误 [周炜恩]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.13',
+                      'page': 'P599 图9-43下第二行',
+                      'source': 'viod*',
+                      'modification': '<b style="color:red">void *</b>',
+                      'witness': '中文版勘误 [次元政]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.24',
+                      'page': 'P445 图6-41上面一段第二行',
+                      'source': '128KB',
+                      'modification': '128<b style="color:red">MB</b>',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.24',
+                      'page': 'P448 图6-44 f)',
+                      'source': 'C[i][j]+=A[i][k]*r',
+                      'modification': 'C[i][j]+=<b style="color:red">B[k][j]</b>*r',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.24',
+                      'page': 'P503 图8-3',
+                      'source': '&times 84',
+                      'modification': '<b style="color:red">&times 8</b>',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.04.24',
+                      'page': 'P727 12.12中',
+                      'source': 'gethostbyname函数',
+                      'modification': '<b style="color:red">ctime</b>函数',
+                      'witness': '中文版勘误 [马晓东]',
+                      'remark': '第4次印刷已更正'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.05.05',
+                      'page': 'P412 第一段',
+                      'source': '与SATA适配器不同，它只能支持一个驱动器',
+                      'modification': '<b style="color:red">而SATA适配器与之不同，只能支持一个驱动器</b>',
+                      'witness': '中文版勘误 [梁金碧]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.06.07',
+                      'page': 'P138 练习题3.13 D中',
+                      'source': 'setne %a',
+                      'modification': 'setne %a<b style="color:red">l</b>',
+                      'witness': '中文版勘误 [Bing Zhao]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.06.08',
+                      'page': 'P232 练习题3.22的答案中',
+                      'source': '直到20!才溢出',
+                      'modification': '<b style="color:red">到20!都不会溢出</b>',
+                      'witness': '中文版勘误 [Bing Zhao]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2015.09.27',
+                      'page': 'P234 练习题3.30答案中',
+                      'source': '在switch语句体中缺失了情况标号3和-6',
+                      'modification': '在switch语句体中缺失了情况标号3和<b style="color:red">6</b>',
+                      'witness': '英文版勘误 [Xinyun Zhao]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.06.09',
+                      'page': 'P164 最后一行',
+                      'source': 'stack fram',
+                      'modification': 'stack <b style="color:red">frame</b>',
+                      'witness': '中文版勘误 [Bing Zhao]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.06.09',
+                      'page': 'P168 3.7.3节第二段第一行',
+                      'source': '（例如整数和指针）',
+                      'modification': '（<b style="color:red">即</b>整数和指针）',
+                      'witness': '中文版勘误 [Bing Zhao]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.06.10',
+                      'page': 'P177 3.8.2节中的表格第三行第四列',
+                      'source': 'movl (%rdx), %rax',
+                      'modification': 'movl (%rdx), <b style="color:red">%eax</b>',
+                      'witness': '中文版勘误 [Bing Zhao]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.06.12',
+                      'page': 'P253 第2段',
+                      'source': '0x000d000d000d000d, 0x00c000c000c000c0, 0x0b000b00b0bb0b00, 0xa000a000a000a000',
+                      'modification': '0x000d000d000d, 0x00c000c000c0, 0x0b000b000b00, 0xa000a000a000',
+                      'witness': '英文版勘误 [Zhangmin Chen]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.07.09',
+                      'page': 'P074 第2行',
+                      'source': '&#8970x/2<sup>k</sup>&#8971',
+                      'modification': '<b style="color:red">&#8968</b>x/2<sup>k</sup><b style="color:red">&#8969</b>',
+                      'witness': '中文版勘误 [尹涛]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.07.09',
+                      'page': 'P138 练习题3.14 D.',
+                      'source': 'setne',
+                      'modification': 'set<b style="color:red">l</b>e',
+                      'witness': '中文版勘误 [尹涛]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.07.09',
+                      'page': 'P240 3.49 B.',
+                      'source': '舍入到最近的8的倍数',
+                      'modification': '<b style="color:red">向上</b>舍入到最近的8的倍数',
+                      'witness': '中文版勘误 [尹涛]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.07.19',
+                      'page': 'P119 3.4节第一段',
+                      'source': '%bp, %ebp, %rbp',
+                      'modification': '<b style="color:red">%sp</b>, <b style="color:red">%esp</b>, <b style="color:red">%rsp</b>',
+                      'witness': '英文版勘误 [jliu0908]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.09.01',
+                      'page': 'P052 第一段最后一行',
+                      'source': '65 563',
+                      'modification': '<b style="color:red">65 536</b>',
+                      'witness': '中文版勘误 [某读者]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.09.01',
+                      'page': 'P061 图2-22',
+                      'source': 'x+<sup>u</sup><sub>y</sub>',
+                      'modification': 'x<b style="color:red">+<sup>u</sup>y</b>',
+                      'witness': '中文版勘误 [某读者]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.09.01',
+                      'page': 'P316 图4-63 左上角代码第二行空白处',
+                      'source': '',
+                      'modification': '<b style="color:red">0x00a: xorq %rsp,%rsp #CC = 100</b>',
+                      'witness': '中文版勘误 [某读者]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.09.01',
+                      'page': 'P317 图4-65 b）暂停',
+                      'source': '暂停=0',
+                      'modification': '暂停=<b style="color:red">1</b>',
+                      'witness': '中文版勘误 [某读者]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.09.01',
+                      'page': 'P317 图4-65 第三幅图',
+                      'source': 'b）气泡',
+                      'modification': '<b style="color:red">c</b>）气泡',
+                      'witness': '中文版勘误 [某读者]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.09.01',
+                      'page': 'P319 练习题4.38图第4行第1列',
+                      'source': '预测错误的分支',
+                      'modification': '<b style="color:red">加载/使用</b>',
+                      'witness': '中文版勘误 [某读者]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.09.01',
+                      'page': 'P377 网络旁注中配图',
+                      'source': '',
+                      'modification': '第2行最后两列的long和int应该分别为<b style="color:red">float</b>和<b style="color:red">double</b>',
+                      'witness': '英文版勘误',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.09.01',
+                      'page': 'P409 图6-10下第一段第3行',
+                      'source': '绕地球一天',
+                      'modification': '绕地球一<b style="color:red">周</b>',
+                      'witness': '中文版勘误 [某读者]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.09.01',
+                      'page': 'P580 图9-26',
+                      'source': '0x40000000',
+                      'modification': '<b style="color:red">0x400000</b>',
+                      'witness': '中文版勘误 [某读者]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.11.09',
+                      'page': 'P073 图2-29标题中',
+                      'source': '除了是向下舍入',
+                      'modification': '除<b style="color:red">法</b>是向下舍入',
+                      'witness': '中文版勘误 [赵冰]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.04.25',
+                      'page': 'P106 练习题2.46答案A中',
+                      'source': '',
+                      'modification': '小数点和1100之间有23个0',
+                      'witness': '中文版勘误的勘误 [杜新宇]',
+                      'remark': '第8次以后的印刷版本有误'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.12.12',
+                      'page': 'P067 2.3.5第3行',
+                      'source': '',
+                      'modification': '第一个负号删除',
+                      'witness': '中文版勘误 [虢]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.12.20',
+                      'page': 'P335 练习题4.14答案表格中，写回一行具体一列中',
+                      'source': 'R[%rsp] &#60-- 9',
+                      'modification': 'R[%<b style="color:red">rax</b>] &#60-- 9',
+                      'witness': '中文版勘误 [yan dong]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.01.25',
+                      'page': 'P367 倒数第二段倒数第二行',
+                      'source': '图5-17给出了当循环展开到10次时',
+                      'modification': '图5-17给出了当循环展开到<b style="color:red">大约</b>10次时',
+                      'witness': '中文版勘误 [赵冰]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.01.29',
+                      'page': 'P368 第一段第四行',
+                      'source': '将data[i]加到acc上，第二条将data[i+1]加到acc上',
+                      'modification': '将data[i]<b style="color:red">乘到</b>acc上，第二条将data[i+1]<b style="color:red">乘到</b>acc上',
+                      'witness': '英文版勘误',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.02.22',
+                      'page': 'P700 图12-17，Ui对应的行',
+                      'source': 'addq %eax',
+                      'modification': 'addq <b style="color:red">$1, %rdx</b>',
+                      'witness': '英文版勘误',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.02.22',
+                      'page': 'P700 图12-17，Si对应的行',
+                      'source': 'movq %eax, cnt(%rip)',
+                      'modification': 'movq <b style="color:red">%rdx</b>, cnt(%rip)',
+                      'witness': '英文版勘误',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.06',
+                      'page': 'P660 练习题11.4第三行',
+                      'source': 'inet_pton',
+                      'modification': '<b style="color:red">inet_ntop</b>',
+                      'witness': '中文版勘误 [Wang Robin]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.06',
+                      'page': 'P107 练习题2.51答案B.中',
+                      'source': '',
+                      'modification': '<b style="color:red">x&prime;-0.1的二进制表示中小数点后应有25个0</b>',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.06',
+                      'page': 'P129 图3-10标题说明文字最后一句',
+                      'source': '',
+                      'modification': '<b style="color:red">注意ATT格式的汇编代码中操作数的顺序与一般的直觉相反</b>',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.07',
+                      'page': 'P668 "2.HTTP响应"上第四行',
+                      'source': '使得代理链中的代理能够判断它是否可以在本地缓存中拥有一个被请求内容的副本',
+                      'modification': '使得代理链中的代理能够判断它是否<b style="color:red">在本地缓存中已经拥有被请求内容的副本了</b>',
+                      'witness': '中文版勘误 [Wang Robin]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.07',
+                      'page': 'P393 参考文献说明，第二段第一行',
+                      'source': '形式化描述了编辑器可以产生更有效代码的方法',
+                      'modification': '形式化描述了<b style="color:red">编译器</b>可以产生更有效代码的方法',
+                      'witness': '中文版勘误 [yan dong]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.08',
+                      'page': 'P046 图2-14下第一段第5行',
+                      'source': '也就意味着能表示的整数比负数少一个',
+                      'modification': '也就意味着能表示的<b style="color:red">正数</b>比负数少一个',
+                      'witness': '中文版勘误 [yan dong]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.08',
+                      'page': 'P054 原理：补码数的符号扩展',
+                      'source': '第二个“宽度为w”',
+                      'modification': '宽度为<b style="color:red">w&prime;</b>',
+                      'witness': '中文版勘误 [yan dong]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.09',
+                      'page': 'P671 倒数第4行',
+                      'source': '图11-8',
+                      'modification': '图<b style="color:red">10</b>-8',
+                      'witness': '中文版勘误 [Wang Robin]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.09.05',
+                      'page': 'P086 最后一行',
+                      'source': '-21483648',
+                      'modification': '<b style="color:red">-2147483648</b>',
+                      'witness': '英文版勘误 [JiaSheng Chen]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.21',
+                      'page': 'P268 旁注中的图，“取指”行“通用”栏第3行',
+                      'source': 'valP&larr;M&#8328;[PC+2]',
+                      'modification': 'val<b style="color:red">C</b>&larr;M&#8328;[PC+2]',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.21',
+                      'page': 'P275 倒数第二行',
+                      'source': '组合逻辑被条件码寄存器环绕着',
+                      'modification': '组合逻辑<b style="color:red">环绕着</b>条件码寄存器',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.21',
+                      'page': 'P276 图4-25（1）和（2）中',
+                      'source': 'CC 000',
+                      'modification': 'CC<b style="color:red">100</b>',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.10.24',
+                      'page': 'P277 第7个指令',
+                      'source': 'IOPL',
+                      'modification': 'IOP<b style="color:red">Q</b>',
+                      'witness': '英文版勘误 [Wenjun Huang]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.21',
+                      'page': 'P288 4.5节上最后一行',
+                      'source': '是不可接收的',
+                      'modification': '是不可接<b style="color:red">受</b>的',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.21',
+                      'page': 'P296 图4-44的说明中',
+                      'source': '直到周期7结束时',
+                      'modification': '直到周期7<b style="color:red">开始</b>时',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.21',
+                      'page': 'P395 倒数第3行',
+                      'source': '变量x',
+                      'modification': '变量<b style="color:red">acc</b>',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.26',
+                      'page': 'P499 练习题7.1答案中',
+                      'source': 'buf在mina.o中定义',
+                      'modification': 'buf在<b style="color:red">m.o</b>中定义',
+                      'witness': '中文版勘误 [Arch Yez]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.29',
+                      'page': 'P566 第8行',
+                      'source': 'V P1',
+                      'modification': '<b style="color:red">VP 1</b>',
+                      'witness': '中文版勘误 [Arch Yez]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.09.09',
+                      'page': 'P114 旁注上倒数第二段倒数第三行',
+                      'source': '64TB',
+                      'modification': '<b style="color:red">256</b>TB',
+                      'witness': '英文版勘误 [Don Bagert]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.04.10',
+                      'page': 'P276 图4-25的表格第2行',
+                      'source': 'irmovq $0x200, %rbx',
+                      'modification': 'irmovq $0x200, <b style="color:red">%rdx</b>',
+                      'witness': '中文版勘误 [chang_jiaming]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.04.16',
+                      'page': 'P009 1.5节第四行',
+                      'source': 'world/n',
+                      'modification': 'world<b style="color:red">\\</b>n',
+                      'witness': '中文版勘误 [itardc]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.04.16',
+                      'page': 'P011 旁注第4行',
+                      'source': 'Mutics',
+                      'modification': 'Mu<b style="color:red">l</b>tics',
+                      'witness': '中文版勘误 [itardc]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.04.16',
+                      'page': 'P404 第8行',
+                      'source': 'DDR（8位）',
+                      'modification': 'DDR<b style="color:red">3</b>（8位）',
+                      'witness': '中文版勘误 [Arch Yez]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.04.21',
+                      'page': 'P026 练习题2.2',
+                      'source': '给出2的不同次幂的二进制和十六进制表示',
+                      'modification': '给出2的不同次幂的<b style="color:red">十进制</b>和十六进制表示',
+                      'witness': '中文版勘误 [itardc]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.05.28',
+                      'page': 'P608 图9-52下第一行',
+                      'source': '其中每个块都是未分配的',
+                      'modification': '其中每个块都是<b style="color:red">未标记的</b>',
+                      'witness': '中文版勘误 [Wang Hao]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.05.28',
+                      'page': 'P103 练习题2.32答案',
+                      'source': '实际上，情况恰恰相反：当x为负数时，tsub_ok(x, TMin)为1，而当x为非负时，它为0。',
+                      'modification': '实际上，情况应该恰恰相反才对：当x为负数时，tsub_ok(x, TMin)应该为1，而当x为非负时，它应该为0。',
+                      'witness': '中文版勘误 [Kevin Tse]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.05.29',
+                      'page': 'P276 图4-25表格第1行',
+                      'source': '$sx100',
+                      'modification': '$<b style="color:red">0</b>x100',
+                      'witness': '中文版勘误 [Arch Yez]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.18',
+                      'page': 'P498 作业7.8 A.中',
+                      'source': 'static int main=1[',
+                      'modification': 'static int main=1<b style="color:red">;</b>',
+                      'witness': '英文版勘误 [yiligong]',
+                      'remark': '第8次印刷已修订'
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.11',
+                      'page': 'P540 8.5.6上一行',
+                      'source': '实现',
+                      'modification': '<b style="color:red">使用</b>',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.11',
+                      'page': 'P570 第3行',
+                      'source': '图9-13b',
+                      'modification': '图9-13<b style="color:red">a</b>',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.11',
+                      'page': 'P572 倒数第一行',
+                      'source': '对于只有一级的页表结构，PPO和VPO是相同的',
+                      'modification': '<b style="color:red">和只有一级到页表结构一样</b>，PPO和VPO是相同的',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.11',
+                      'page': 'P574 图9-20',
+                      'source': '第二幅图最左边表头第一个字“位”',
+                      'modification': '<b style="color:red">组</b>',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.11',
+                      'page': 'P713 第二段第一句话',
+                      'source': '程序单线程顺序运行非常慢，几乎比多线程并行运行时慢了一个数量级',
+                      'modification': '<b style="color:red">这个程序不仅单线程顺序运行时非常慢，多线程并行运行比单线程几乎还要慢一个数量级</b>',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.11',
+                      'page': 'P626 旁注下第3行',
+                      'source': '只含有20多个字节',
+                      'modification': '只含有20个字节',
+                      'witness': '中文版勘误 [xiejianxun]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.20',
+                      'page': 'P267 图4-19 访存一行第3列',
+                      'source': 'valE&larr;M&#8328;[valE]',
+                      'modification': '<b style="color:red">valM</b>&larr;M&#8328;[valE]',
+                      'witness': '中文版勘误 [359250296]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.24',
+                      'page': 'P480 图7-11上一行',
+                      'source': 'objdump-dx main.o',
+                      'modification': '<b style="color:red">objdump -dx</b> main.o',
+                      'witness': '中文版勘误 [Arch Yez]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.26',
+                      'page': 'P050 第2行',
+                      'source': '除了参数是无符号的，而结果是以补码表示的',
+                      'modification': '<b style="color:red">除了参数是以补码表示的，而结果是无符号的</b>',
+                      'witness': '中文版勘误 [Kevin Yu]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.26',
+                      'page': 'P050 第3行',
+                      'source': '生成一个数的无符号表示和x的补码表示相同',
+                      'modification': '<b style="color:red">生成一个数，这个数的补码表示和x的无符号表示相同</b>',
+                      'witness': '中文版勘误 [Kevin Yu]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.07.12',
+                      'page': 'P104 练习题2.35答案3）第二行',
+                      'source': '2<sup>w</sup>',
+                      'modification': '2<b style="color:red"><sup>w-1</sup></b> 说明：原题只需要|r|<2<sup>w</sup>，所以原来的描述和证明仍然是正确的。',
+                      'witness': '英文版勘误 [Wang Lei]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.03.09',
+                      'page': 'P213 3.11.6下表中',
+                      'source': 'ucomiss和ucomisd',
+                      'modification': '<b style="color:red">vucomiss和vucomisd</b> 说明：vucomiss和vucomisd是AVX指令，ucomiss和ucomisd是SSE指令',
+                      'witness': '英文版勘误 [Weicheng Pei]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.04.26',
+                      'page': 'P226 最后一行',
+                      'source': '',
+                      'modification': '这些例子不依赖整型提升的规则。这些规则与对比int更小的数据值实施的操作有关，可以参考https://wiki.sei.cmu.edu/confluence/display/c/INT02-C.+Understand+integer+conversion+rules。本书中没有包含这部分内容。',
+                      'witness': '英文版勘误 [Randal Bryant]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.07.23',
+                      'page': 'P288 图4-38上倒数第二行',
+                      'source': '如图4-38c所示',
+                      'modification': '如图4-38<b style="color:red">d</b>所示',
+                      'witness': '英文版勘误 [Jong-won Choi]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.05',
+                      'page': 'P306 倒数第一段',
+                      'source': '',
+                      'modification': '说明：我们的处理器设计在异常发生时，不会试图将程序计数器（PC）设置为准确的值。在更完备的实现中，PC会被设置为导致异常的指令的地址，但是流水线化的实现并不是这样。',
+                      'witness': '英文版勘误 [Eadren King]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.02.26',
+                      'page': 'P532 图8-30第15行',
+                      'source': 'pause();',
+                      'modification': '<b style="color:red">P</b>ause();',
+                      'witness': '英文版勘误 [Bill Nace]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.05.08',
+                      'page': 'P580 图9-26',
+                      'source': '',
+                      'modification': '地址空间的内核部分对每个进程来说都一样。不存在对每个进程来说不相同的内核虚拟内存。',
+                      'witness': '英文版勘误 [Godmar Bak]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.11',
+                      'page': 'P479 图7-9下第三行',
+                      'source': '回想一下3.6.3节',
+                      'modification': '回想一下<b style="color:red">3.6.4</b>节',
+                      'witness': '英文版勘误 [谢建勋]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.06.11',
+                      'page': 'P523 getenv函数描述中返回值解释',
+                      'source': '若存在则为指向name的指针',
+                      'modification': '若存在则为指向<b style="color:red">value</b>的指针',
+                      'witness': '英文版勘误 [谢建勋]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.07.26',
+                      'page': 'P068 第7行',
+                      'source': 'x&prime;*<sup>t</sup><sub>w</sub>y&prime;',
+                      'modification': 'x&prime;<b style="color:red">*<sup>u</sup><sub>w</sub></b>y&prime;',
+                      'witness': '中文版勘误 [Zhang Shuai]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.08.14',
+                      'page': 'P579 第3段第3行',
+                      'source': '提供到一个L1 PET的偏移量',
+                      'modification': '提供到一个L1 <b style="color:red">PTE</b>的偏移量',
+                      'witness': '中文版勘误 [Cosmo Julis]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.09.27',
+                      'page': 'P236 练习题3.37答案',
+                      'source': '',
+                      'modification': '表格第四列中所有leal都应该为leaq',
+                      'witness': '中文版勘误 [曹野]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.10.07',
+                      'page': 'P515 图8-16中x==1',
+                      'source': '',
+                      'modification': 'x<b style="color:red">=1</b>',
+                      'witness': '英文版勘误 [曹野]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.10.07',
+                      'page': 'P574 最上面虚拟地址的划分',
+                      'source': '',
+                      'modification': 'TLBI的左右箭头分别位于7和8之间以及5和6之间；TLBT的右箭头位于7和8之间',
+                      'witness': '中文版勘误 [曹野]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.10.07',
+                      'page': 'P591 倒数第二行',
+                      'source': '请求要求6个字',
+                      'modification': '请求要求<b style="color:red">8</b>个字',
+                      'witness': '中文版勘误 [曹野]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.10.12',
+                      'page': 'P044 第7行',
+                      'source': '图2-11展示的是',
+                      'modification': '图2-<b style="color:red">12</b>展示的是',
+                      'witness': '中文版勘误 [破晓]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.10.16',
+                      'page': 'P212 图3-50第2行第2列',
+                      'source': 'vorpd',
+                      'modification': '<b style="color:red">x</b>orpd',
+                      'witness': '中文版勘误 [破晓]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.10.27',
+                      'page': 'P240 练习题3.51答案，表格第6行第3列',
+                      'source': 'vctsi2ssq',
+                      'modification': 'vc<b style="color:red">v</b>tsi2ssq',
+                      'witness': '中文版勘误 [LeyN]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2017.01.02',
+                      'page': 'P251 图4-6 x86-64代码第9行注释',
+                      'source': 'Test sum',
+                      'modification': 'Test <b style="color:red">count</b>',
+                      'witness': '英文版勘误 [Lee Wintervold]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.10.31',
+                      'page': 'P386 倒数第3行',
+                      'source': '只有到计算出加载和存储的地址被计算出来以后',
+                      'modification': '只有到加载和存储的地址被计算出来以后',
+                      'witness': '中文版勘误 [破晓]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.11.23',
+                      'page': 'P102 练习题2.24答案最后一行',
+                      'source': '-4～1序列的反复',
+                      'modification': '-4～<b style="color:red">-1</b>序列的反复',
+                      'witness': '中文版勘误 [尹旭昊]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.12.24',
+                      'page': 'P264 倒数第3段第4行',
+                      'source': '取出一个四字节常数字',
+                      'modification': '取出一个<b style="color:red">8</b>字节常数字',
+                      'witness': '中文版勘误 [LipanXu]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.12.30',
+                      'page': 'P065 第9行',
+                      'source': '或者x+y&lt;TMax<sub>w</sub>',
+                      'modification': '<b style="color:red">否则</b>x+y&lt;TMax<sub>w</sub>',
+                      'witness': '中文版勘误 [钱彬彬]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2018.12.30',
+                      'page': 'P065 练习题2.32第2行',
+                      'source': '假设你写的练习题2.30的代码如下所示:',
+                      'modification': '完成练习题2.30的代码后，你写下如下代码:',
+                      'witness': '中文版勘误 [钱彬彬]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.01.11',
+                      'page': 'P079 旁注下第2段',
+                      'source': '逐渐溢出',
+                      'modification': '逐渐<b style="color:red">下溢</b>',
+                      'witness': '中文版勘误 [钱彬彬]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.01.11',
+                      'page': 'P104 2.35 1）最后一行',
+                      'source': '',
+                      'modification': '第二个“乘法不会溢出”改为“乘法会溢出”',
+                      'witness': '中文版勘误 [钱彬彬]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.01.16',
+                      'page': 'P133 图3-12最后一行',
+                      'source': 'R[%rdx]&larr;R[%rdx]:R[%rax]&divide;S',
+                      'modification': '<b style="color:red">R[%rax]</b>&larr;R[%rdx]:R[%rax]&divide;S',
+                      'witness': '中文版勘误 [Bob]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.01.24',
+                      'page': 'P106 2.44 F.',
+                      'source': '补码和无符号乘法有相同的位级行为',
+                      'modification': '补码和无符号<b style="color:red">加法</b>有相同的位级行为',
+                      'witness': '中文版勘误 [liujiabinit]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.05.30',
+                      'page': 'P498 作业7.8第一行',
+                      'source': 'REF(x, i)&rarr;DEF(x, k)',
+                      'modification': 'REF(<b style="color:red">x.i</b>)&rarr;DEF(<b style="color:red">x.k</b>)',
+                      'witness': '中文版勘误 [Yili Gong]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.02.20',
+                      'page': 'P276 图4-25',
+                      'source': '程序计算器',
+                      'modification': '<b style="color:red">程序计数器</b>',
+                      'witness': '中文版勘误 [沈嘉欢]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.03.04',
+                      'page': 'P270 练习题4.17第一行',
+                      'source': 'rmmovq',
+                      'modification': '<b style="color:red">rrmovq</b>',
+                      'witness': '中文版勘误 [yan_xiansheng]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.02.25',
+                      'page': 'P177 3.8.2节中的表格第6行第4列',
+                      'source': 'leaq-4(%rdx,%rcx,4),%rax',
+                      'modification': '<b style="color:red">leaq -4</b>(%rdx,%rcx,4),%rax ',
+                      'witness': '中文版勘误 [叶正茂]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.02.25',
+                      'page': 'P177 3.8.2节中的表格第7行第4列',
+                      'source': 'movl-12(%rdx,%rcx,4),%eax',
+                      'modification': '<b style="color:red">movl -12</b>(%rdx,%rcx,4),%eax ',
+                      'witness': '中文版勘误 [叶正茂]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.03.11',
+                      'page': 'P264 第一段第6行',
+                      'source': '对于读操作来说',
+                      'modification': '<b style="color:red">与读操作一样</b>',
+                      'witness': '中文版勘误 [神楽坂琴梨]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.07.22',
+                      'page': 'P566 图9-9',
+                      'source': '',
+                      'modification': '进程i与进程j的虚拟地址空间之间有\"...\"',
+                      'witness': '中文版勘误 [gongbo wang]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.10.04',
+                      'page': 'P406 6.1.2节上倒数第3行',
+                      'source': '内存从内存总线读出地址',
+                      'modification': '<b style="color:red">主存</b>从内存总线读出地址',
+                      'witness': '中文版勘误 [龚奇峰]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.10.12',
+                      'page': 'P120 倒数第2行',
+                      'source': '有些程序会明确地读写',
+                      'modification': '有些<b style="color:red">指令</b>会明确地读写',
+                      'witness': '中文版勘误 [xiaohuihui]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2019.11.29',
+                      'page': 'P305 图4-55 代码第2行',
+                      'source': '%edx',
+                      'modification': '<b style="color:red">%rsp</b>',
+                      'witness': '英文版勘误 [mjy163zy]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.03.04',
+                      'page': 'P311 练习题4.32上最后一行',
+                      'source': '因为只有这条指令能同时写两个寄存器',
+                      'modification': '因为只有这一条指令<b style="color:red">会试图两次写同一个寄存器</b>',
+                      'witness': '中文版勘误[Jerry Fu]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.03.17',
+                      'page': 'P043 图2-10下第1行',
+                      'source': '负数的范围比整数的范围大1',
+                      'modification': '负数的范围比<b style="color:red">正</b>数的范围大1',
+                      'witness': '中文版勘误',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.03.17',
+                      'page': 'P476 最后一行',
+                      'source': 'main.o',
+                      'modification': 'main<b style="color:red">2</b>.o',
+                      'witness': '中文版勘误[郭贽尧]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.04.03',
+                      'page': 'P167 图3-27（续）标号T1行',
+                      'source': '0x400555',
+                      'modification': '0x4005<b style="color:red">4</b>5',
+                      'witness': '中文版勘误 [hitcstjm]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.04.03',
+                      'page': 'P167 图3-27（续）标号T2行',
+                      'source': '0x400559',
+                      'modification': '0x4005<b style="color:red">4</b>9',
+                      'witness': '中文版勘误 [hitcstjm]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.06.12',
+                      'page': 'P122 倒数第4行',
+                      'source': '要么是一个寄存器或者',
+                      'modification': '或者二字删掉',
+                      'witness': '中文版勘误 [1301458924]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.06.12',
+                      'page': 'P228 练习题3.15 B',
+                      'source': 'jb指令的目标',
+                      'modification': 'j<b style="color:red">e</b>指令的目标',
+                      'witness': '中文版勘误 [1301458924]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.06.12',
+                      'page': 'P146 倒数第5行',
+                      'source': '与不同的SET',
+                      'modification': '与<b style="color:red">各种</b>SET',
+                      'witness': '中文版勘误 [1301458924]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.06.12',
+                      'page': 'P147 倒数第3行',
+                      'source': '当测试条件t满足时',
+                      'modification': '当测试条件t<b style="color:red">不</b>满足时',
+                      'witness': '中文版勘误 [1301458924]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.06.28',
+                      'page': 'P350 第2段第3行',
+                      'source': '超过两个数量级',
+                      'modification': '超过<b style="color:red">两倍</b>',
+                      'witness': '中文版勘误 [任喜亮]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.02.15',
+                      'page': 'P62 中间',
+                      'source': '丹麦数学家',
+                      'modification': '<b style="color:red">挪威</b>数学家',
+                      'witness': '中文版勘误 [曾翔]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.03.10',
+                      'page': 'P670 图11-27',
+                      'source': '第19行',
+                      'modification': '删除',
+                      'witness': '英文版勘误 [陈灵敏]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.03.30',
+                      'page': 'P399 第2段第2行',
+                      'source': '靠近CPU的小的,快速的高速缓存存储器（cache memory）作为一部分存储在相对慢速的主存储器（main memory）中数据和指令的缓冲区域',
+                      'modification': '靠近CPU的小的、快速的高速缓存存储器（cache memory）是一个缓冲区，缓存的是存储在相对慢速的主存储器（main memory）中数据和指令的一部分',
+                      'witness': '中文版勘误 [周磊]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.03.30',
+                      'page': 'P400 6.1.1节第3行',
+                      'source': '也可以在片下',
+                      'modification': '也可以在<b style="color:red">片外</b>',
+                      'witness': '中文版勘误 [周磊]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.03.30',
+                      'page': 'P406 第2行和第4行',
+                      'source': '感觉',
+                      'modification': '<b style="color:red">感知</b>',
+                      'witness': '中文版勘误 [周磊]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.03.30',
+                      'page': 'P417 旁注第5行',
+                      'source': '能量墙',
+                      'modification': '<b style="color:red">功耗</b>墙',
+                      'witness': '中文版勘误 [周磊]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.03.30',
+                      'page': 'P421 图6-21右侧',
+                      'source': 'L3高速缓存保存着从主存高速缓存取出的缓存行',
+                      'modification': 'L3高速缓存保存着从主存取出的缓存行',
+                      'witness': '中文版勘误 [周磊]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.03.30',
+                      'page': 'P422 图6-22中间',
+                      'source': '数据以块为大小传输单元在层与层之间复制',
+                      'modification': '数据在层与层之间复制，其传输单元以块为大小',
+                      'witness': '中文版勘误 [周磊]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.03.30',
+                      'page': 'P423 倒数第3行',
+                      'source': '最灵活的替换策略',
+                      'modification': '最灵活的<b style="color:red">放置</b>策略',
+                      'witness': '中文版勘误 [周磊]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.03.30',
+                      'page': 'P425 图6-23标题',
+                      'source': '翻译后备缓冲器',
+                      'modification': '<b style="color:red">快表</b>',
+                      'witness': '中文版勘误 [周磊]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.03.30',
+                      'page': 'P435 倒数第4行',
+                      'source': '翻译后备缓冲器',
+                      'modification': '<b style="color:red">快表</b>',
+                      'witness': '中文版勘误 [周磊]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.03.30',
+                      'page': 'P450 倒数第6行',
+                      'source': '也可以用作芯片下的',
+                      'modification': '也可以用作芯片<b style="color:red">外</b>的',
+                      'witness': '中文版勘误 [周磊]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.04.19',
+                      'page': 'P199 第3行',
+                      'source': 'operatioin',
+                      'modification': '<b style="color:red">operation</b>',
+                      'witness': '中文版勘误 [1176987819]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.06.26',
+                      'page': 'P624 第11行',
+                      'source': '../home/droh/hello.c',
+                      'modification': '<b style="color:red">../droh/hello.c</b>',
+                      'witness': '英文版勘误 [Mathieu Bordere]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.06.06',
+                      'page': 'P406 图6-7标题',
+                      'source': 'movqA',
+                      'modification': '<b style="color:red">movq A</b>',
+                      'witness': '中文版勘误 [Leon Li]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.06.06',
+                      'page': 'P407 图6-8标题',
+                      'source': 'movq % rax',
+                      'modification': '<b style="color:red">movq &#37rax</b>',
+                      'witness': '中文版勘误 [Leon Li]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.10.13',
+                      'page': 'P138 练习题3.13函数下第2行',
+                      'source': '表3-1',
+                      'modification': '<b style="color:red">图</b>3-1',
+                      'witness': '中文版勘误 [某读者]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.11.29',
+                      'page': 'P172 第4行',
+                      'source': '17(s3)',
+                      'modification': '17(<b style="color:red">x4</b>)',
+                      'witness': '英文版勘误 [Hyun Chun]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.10.02',
+                      'page': 'P240 3.46 C.',
+                      'source': '0x040034',
+                      'modification': '<b style="color:red">0x400034</b>',
+                      'witness': '英文版勘误 []',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.10.02',
+                      'page': 'P240 3.46 E.',
+                      'source': '代码还应该检查返回值是否为NULL',
+                      'modification': '代码还应该检查<b style="color:red">gets的返回值，确保它不为NULL</b>',
+                      'witness': '英文版勘误 []',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2020.10.02',
+                      'page': 'P624 10.3节上倒数第1行',
+                      'source': '相对路径名就是../home/droh/hello.c',
+                      'modification': '相对路径名就是<b style="color:red">../droh/hello.c</b>',
+                      'witness': '英文版勘误 []',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2016.08.16',
+                      'page': 'P248 练习题4.2',
+                      'source': '',
+                      'modification': '<b style="color:red">最后加00</b>',
+                      'witness': '英文版勘误 [James Timmins]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.07.31',
+                      'page': 'P323 练习题4.44第1行',
+                      'source': '练习题4.4和练习题4.5',
+                      'modification': '练习题<b style="color:red">4.5</b>和练习题<b style="color:red">4.6</b>',
+                      'witness': '中文版勘误 [李星辰]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.08.17',
+                      'page': 'P104 练习题2.35的答案2）第1行',
+                      'source': '用非零数x除以p',
+                      'modification': '<b style="color:red">用非零数x除p</b>',
+                      'witness': '中文版勘误 [姚佳男]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.11.5',
+                      'page': 'P371 图5-22上方倒数第2行',
+                      'source': '我们已将将',
+                      'modification': '我们已<b style="color:red">经</b>将',
+                      'witness': '中文版勘误 [冀佳男]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.11.8',
+                      'page': 'P41 第2行',
+                      'source': '表达是',
+                      'modification': '表达<b style="color:red">式</b>',
+                      'witness': '中文版勘误 [宋卓著]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.9.28',
+                      'page': 'P626 图10-3下第1行',
+                      'source': '应用程序能够显示地',
+                      'modification': '应用程序能够显<b style="color:red">式</b>地',
+                      'witness': '中文版勘误 [并行立方体]',
+                      'remark': ''
+                    },
+                    {
+                      'status': '',
+                      'date': '2021.6.30',
+                      'page': 'P338 练习题4.33的答案倒数第2行',
+                      'source': '增加了的程序计数器',
+                      'modification': '增加了的<b style="color:red">%rsp</b>',
+                      'witness': '英文版勘误 [王家磊]',
+                      'remark': ''
+                    }
+                    ];
+                    //object可以如下初始化表格
+                  $('#table').DataTable( {
+                      dom: '<"top"if>rt<"bottom"><"clear">pl',
+                      data: data,
+                      //使用对象数组，一定要配置columns，告诉 DataTables 每列对应的属性
+                      //data 这里是固定不变的，name，position，salary，office 为你数据里对应的属性
+                      columns: [
+                          { data: 'status' },
+                          { data: 'date' },
+                          { data: 'page' },
+                          { data: 'source' },
+                          { data: 'modification'},
+                          { data: 'witness'},
+                          { data: 'remark'}
+                      ]
+                  } );
+                })
+                </script>
+      </body>
+
+</html>
